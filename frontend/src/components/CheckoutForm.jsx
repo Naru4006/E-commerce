@@ -97,7 +97,9 @@ const CheckoutForm = ({ orderTotal, orderItems }) => {
 
     try {
       // Step 1: Create checkout session (Payment Intent) via Backend API
-      const intentResponse = await fetch('/api/payments/create-intent', {
+      const intentResponse = await fetch(
+        'https://e-commerce-production-3156.up.railway.app/api/payments/create-intent',
+        {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -140,7 +142,9 @@ const CheckoutForm = ({ orderTotal, orderItems }) => {
       }
 
       // Step 3: Confirm payment with Backend API
-      const confirmResponse = await fetch('/api/payments/confirm', {
+      const confirmResponse = await fetch(
+        'https://e-commerce-production-3156.up.railway.app/api/payments/confirm',
+        {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
